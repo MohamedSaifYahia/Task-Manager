@@ -1,0 +1,58 @@
+<h1>Welcome to the Home Page</h1>
+<section>
+    <h2>Tasks</h2>
+    <!-- You can list the tasks here or add more content as needed -->
+</section>
+
+<form method="GET" action="/">
+    <input type="text" name="titleQ" placeholder="Filter by title">
+    <input type="text" name="tagQ" placeholder="Filter by tag">
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Pinned
+            </th>
+            
+
+            <th>
+                Priority 
+                <a href="/?sort-by=priority&sort-order=asc">⬆️</a>
+                <a href="/?sort-by=priority&sort-order=desc">⬇️</a>
+            </th>
+             <th>
+                Title
+            </th>
+          
+            <th>
+                Due Date 
+                <a href="/?sort-by=due-date&sort-order=asc">⬆️</a>
+                <a href="/?sort-by=due-date&sort-order=desc">⬇️</a>
+            </th>
+            <th>
+                Tags
+            </th>
+            <th>
+                Progress
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each tasks}}
+        <tr>
+                        <td>{{this.pinned}}</td>
+
+                        <td>{{this.priority}}</td>
+
+            <td>{{this.title}}</td>
+            <td>{{this.dueDate}}</td>
+            <td>{{joinTags this.tags}}</td>
+            <td>{{this.progress}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
